@@ -1,6 +1,6 @@
 import turtle
 
-STEP = 30
+STEP = 20
 WIDTH = 1920
 LENGHT = 1000
 
@@ -25,14 +25,14 @@ ball.shapesize(stretch_len=2, stretch_wid=2)
 ball.color('white')
 ball.penup()
 ball.goto(0, 0)
-ball_speed_x = 0.5
-ball_speed_y = 0.5
+ball_speed_x = 0.2
+ball_speed_y = 0.2
 
 
-def go_up():
+def go_up(): #if
     bumper.sety(bumper.ycor() + STEP)
 
-def go_down():
+def go_down(): #if
     bumper.sety(bumper.ycor() - STEP)
 
 window.listen()
@@ -47,3 +47,6 @@ while True:
         ball_speed_x *= -1
     if LENGHT / 2 < ball.ycor()  or ball.ycor() <  - LENGHT / 2:
         ball_speed_y *= -1
+
+    if ball.xcor() <= -WIDTH /2 + 70 and ball.ycor() < bumper.ycor() + 100:
+        ball_speed_x *= -1
